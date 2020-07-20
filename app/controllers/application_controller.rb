@@ -6,8 +6,14 @@ class ApplicationController < Sinatra::Base
 
   # code actions here!
 
-  get '/' do
+  #Index Action
+  get '/recipes' do
+    @recipes = Recipe.all
     erb :index
+  end
+
+  get '/recipes/new' do
+    erb :new
   end
 
 end
