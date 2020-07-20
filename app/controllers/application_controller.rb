@@ -16,9 +16,15 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
+  #Show Action
   get '/recipes/:id' do 
     @recipe = Recipe.find(params[:id])
     erb :show
+  end
+
+  #Delete Action
+  delete '/recipes/:id' do 
+    @recipe = Recipe.delete(params[:id])
   end
 
 end
