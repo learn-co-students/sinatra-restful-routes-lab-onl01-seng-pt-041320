@@ -1,3 +1,4 @@
+require 'pry'
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -36,13 +37,13 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
 
+  #binding.pry
+
   patch "/articles/:id" do 
     Recipe.update(params[:id], name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     @recipe = Recipe.find(params[:id])
     redirect to "/recipes/#{@recipe.id}"
   end
-
-
 
   #Delete Action
   delete '/recipes/:id' do 
