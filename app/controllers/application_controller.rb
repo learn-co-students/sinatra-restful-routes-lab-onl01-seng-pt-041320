@@ -39,7 +39,7 @@ class ApplicationController < Sinatra::Base
 
   #binding.pry
 
-  patch "/articles/:id" do 
+  patch "/recipes/:id" do 
     Recipe.update(params[:id], name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     @recipe = Recipe.find(params[:id])
     redirect to "/recipes/#{@recipe.id}"
