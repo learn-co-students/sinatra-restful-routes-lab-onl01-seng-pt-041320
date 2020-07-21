@@ -26,6 +26,7 @@ class ApplicationController < Sinatra::Base
   #Show Action
   get '/recipes/:id' do 
     @recipe = Recipe.find(params[:id])
+    #binding.pry
     erb :show
   end
 
